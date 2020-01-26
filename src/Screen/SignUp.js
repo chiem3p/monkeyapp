@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView ,} from 'react-native';
 import constants from 'jest-haste-map/build/constants';
 import { color } from 'react-native-reanimated';
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // create a component55823
 class Root extends Component {
     static navigationOptions = {
@@ -14,7 +14,7 @@ class Root extends Component {
 
         return (
             <View style={styles.container}>
-                <ScrollView  showsVerticalScrollIndicator={false}>
+               <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.headerRoot}>
                         <Image style={styles.LogoImage} source={require('../Image/logo.png')} />
                     </View>
@@ -49,7 +49,7 @@ class Root extends Component {
                         <TouchableOpacity style={styles.buttonSignUp} onPress={() => this.props.navigation.navigate('Main')}>
                             <Text style={styles.textButton}>Sign Up</Text></TouchableOpacity>
                     </View>
-                </ScrollView>
+                </KeyboardAwareScrollView>
             </View>
         );
     }
@@ -112,10 +112,12 @@ const styles = StyleSheet.create({
     textButton: {
         fontSize: 25,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
     },
     footerRoot: {
-        flex: 0.2
+        flex: 0.2,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     LogoImage: {
         width: 350,
